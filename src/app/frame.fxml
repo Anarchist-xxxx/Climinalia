@@ -17,111 +17,104 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="537.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.FrameController">
-   <children>
-      <BorderPane prefHeight="700.0" prefWidth="1533.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <center>
-            <AnchorPane>
-               <children>
-                  <SplitPane dividerPositions="0.5344827586206896" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="701.0" prefWidth="1220.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <items>
-                        <BorderPane fx:id="wrapList" prefHeight="200.0" prefWidth="200.0">
-                           <center>
-                              <TableView fx:id="listTable" prefHeight="624.0" prefWidth="276.0">
-                                <columns>
-                                  <TableColumn fx:id="columnTitle" prefWidth="488.0" text="Title" />
-                                    <TableColumn fx:id="columnEnd" prefWidth="49.0" style="-fx-alignment: center-right;" text="posts" />
-                                  <TableColumn fx:id="columnKey" prefWidth="93.0" style="-fx-alignment: center;" text="Key" />
-                                </columns>
-                              </TableView>
-                           </center>
-                           <top>
-                              <GridPane prefHeight="83.0" prefWidth="503.0" BorderPane.alignment="CENTER">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="525.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <TabPane>
-                                       <tabs>
-                                          <Tab closable="false" text="Thread">
-                                             <content>
-                                                <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
-                                                   <children>
-                                                      <ChoiceBox fx:id="choiceThreadSearch" prefHeight="27.0" prefWidth="92.0">
-                                                         <FlowPane.margin>
-                                                            <Insets bottom="10.0" right="10.0" top="10.0" />
-                                                         </FlowPane.margin>
-                                                      </ChoiceBox>
-                                                      <TextField fx:id="textFieldThreadSearch" onAction="#threadSearchAction" prefHeight="27.0" prefWidth="326.0">
-                                                         <FlowPane.margin>
-                                                            <Insets bottom="10.0" right="10.0" top="10.0" />
-                                                         </FlowPane.margin>
-                                                      </TextField>
-                                                      <Button fx:id="buttonThreadSearch" mnemonicParsing="false" onAction="#threadSearchAction" text="Search">
-                                                         <FlowPane.margin>
-                                                            <Insets bottom="10.0" top="10.0" />
-                                                         </FlowPane.margin>
-                                                      </Button>
-                                                   </children>
-                                                </FlowPane>
-                                             </content>
-                                          </Tab>
-                                          <Tab closable="false" text="Post">
-                                             <content>
-                                                <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
-                                                   <children>
-                                                      <ChoiceBox fx:id="choicePostSearch" prefHeight="27.0" prefWidth="92.0">
-                                                         <FlowPane.margin>
-                                                            <Insets bottom="10.0" right="10.0" top="10.0" />
-                                                         </FlowPane.margin>
-                                                      </ChoiceBox>
-                                                      <TextField fx:id="textFieldPostSearch" onAction="#postSearchAction" prefHeight="27.0" prefWidth="326.0">
-                                                         <FlowPane.margin>
-                                                            <Insets bottom="10.0" right="10.0" top="10.0" />
-                                                         </FlowPane.margin>
-                                                      </TextField>
-                                                      <Button fx:id="buttonPostSearch" mnemonicParsing="false" onAction="#postSearchAction" text="Search">
-                                                         <FlowPane.margin>
-                                                            <Insets bottom="10.0" top="10.0" />
-                                                         </FlowPane.margin>
-                                                      </Button>
-                                                   </children>
-                                                </FlowPane>
-                                             </content>
-                                          </Tab>
-                                       </tabs>
-                                    </TabPane>
-                                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" GridPane.columnIndex="1">
+
+<BorderPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.FrameController">
+   <center>
+      <SplitPane dividerPositions="0.5344827586206896" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="10.0" minWidth="10.0" prefHeight="701.0" prefWidth="1220.0">
+         <items>
+            <BorderPane fx:id="wrapList" prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <TableView fx:id="listTable" prefHeight="624.0" prefWidth="276.0">
+                    <columns>
+                      <TableColumn fx:id="columnTitle" prefWidth="488.0" text="Title" />
+                        <TableColumn fx:id="columnEnd" prefWidth="49.0" style="-fx-alignment: center-right;" text="posts" />
+                      <TableColumn fx:id="columnKey" prefWidth="93.0" style="-fx-alignment: center;" text="Key" />
+                    </columns>
+                  </TableView>
+               </center>
+               <top>
+                  <GridPane prefHeight="83.0" prefWidth="503.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="525.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TabPane>
+                           <tabs>
+                              <Tab closable="false" text="Thread">
+                                 <content>
+                                    <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Button fx:id="buttonUpdate" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#buttonUpdateAction" prefHeight="83.0" prefWidth="0.0" text="Update" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0" />
+                                          <ChoiceBox fx:id="choiceThreadSearch" prefHeight="27.0" prefWidth="92.0">
+                                             <FlowPane.margin>
+                                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                                             </FlowPane.margin>
+                                          </ChoiceBox>
+                                          <TextField fx:id="textFieldThreadSearch" onAction="#threadSearchAction" prefHeight="27.0" prefWidth="326.0">
+                                             <FlowPane.margin>
+                                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                                             </FlowPane.margin>
+                                          </TextField>
+                                          <Button fx:id="buttonThreadSearch" mnemonicParsing="false" onAction="#threadSearchAction" text="Search">
+                                             <FlowPane.margin>
+                                                <Insets bottom="10.0" top="10.0" />
+                                             </FlowPane.margin>
+                                          </Button>
                                        </children>
-                                    </AnchorPane>
-                                 </children>
-                              </GridPane>
-                           </top>
-                        </BorderPane>
-                        <AnchorPane>
+                                    </FlowPane>
+                                 </content>
+                              </Tab>
+                              <Tab closable="false" text="Post">
+                                 <content>
+                                    <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <ChoiceBox fx:id="choicePostSearch" prefHeight="27.0" prefWidth="92.0">
+                                             <FlowPane.margin>
+                                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                                             </FlowPane.margin>
+                                          </ChoiceBox>
+                                          <TextField fx:id="textFieldPostSearch" onAction="#postSearchAction" prefHeight="27.0" prefWidth="326.0">
+                                             <FlowPane.margin>
+                                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                                             </FlowPane.margin>
+                                          </TextField>
+                                          <Button fx:id="buttonPostSearch" mnemonicParsing="false" onAction="#postSearchAction" text="Search">
+                                             <FlowPane.margin>
+                                                <Insets bottom="10.0" top="10.0" />
+                                             </FlowPane.margin>
+                                          </Button>
+                                       </children>
+                                    </FlowPane>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" GridPane.columnIndex="1">
                            <children>
-                              <TabPane fx:id="threadTabPane" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="5000.0" tabMaxWidth="5000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="buttonUpdate" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#buttonUpdateAction" prefHeight="83.0" prefWidth="0.0" text="Update" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0" />
                            </children>
                         </AnchorPane>
-                     </items>
-                  </SplitPane>
+                     </children>
+                  </GridPane>
+               </top>
+            </BorderPane>
+            <AnchorPane>
+               <children>
+                  <TabPane fx:id="threadTabPane" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="5000.0" tabMaxWidth="5000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
-         </center>
-         <top>
-            <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="1292.0" BorderPane.alignment="CENTER">
-              <items>
-                <Button mnemonicParsing="false" onAction="#openSetting" text="Setting(Unimplemented)" />
-                  <Button mnemonicParsing="false" onAction="#anarchyAction" text="【*^▲^*】" textAlignment="CENTER" textFill="RED" />
-              </items>
-            </ToolBar>
-         </top>
-      </BorderPane>
-   </children>
-</AnchorPane>
+         </items>
+      </SplitPane>
+   </center>
+   <top>
+      <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="1292.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button mnemonicParsing="false" onAction="#openSetting" text="Setting(Unimplemented)" />
+            <Button mnemonicParsing="false" onAction="#anarchyAction" text="【*^▲^*】" textAlignment="CENTER" textFill="RED" />
+        </items>
+      </ToolBar>
+   </top>
+</BorderPane>
