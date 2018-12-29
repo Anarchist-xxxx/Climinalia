@@ -7,10 +7,12 @@ PandoLiAを使用して作成されたsqlite3データベースをguiでみや�
 保存されたスレをhtmlに整形してそれっぽく表示したりできるよ
 
 ## 使用方法
-JDK(Java SE Development Kit 8u192)が必要だよ
-ダブルクリックで実行してね
+JDK(Java SE Development Kit 8u192)が必要だよ  
+ダブルクリックで実行してね  
 
-htmlボタンをおすとdata/html/に"{key}.html"っていう名前のhtmlファイルが生成されるよ
+./data/database.dbのあるディレクトリで使用してね  
+
+htmlボタンをおすとdata/html/に"{key}.html"っていう名前のhtmlファイルが生成されるよ  
 Openボタンでブラウザで閲覧できるよ
 
 ## ダウンロード
