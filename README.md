@@ -2,7 +2,7 @@
 穴実のログをguiでみやすく閲覧！
 
 ## 説明
-PandoLiAを使用して作成されたsqlite3データベースをguiでみやすく閲覧するためのファイルだよ  
+[PandoLiA](https://github.com/Anarchist-xxxx/PandoLiA)を使用して作成されたsqlite3データベースをguiでみやすく閲覧するためのファイルだよ  
 スレタイや名前、コメントとかで検索したり  
 保存されたスレをhtmlに整形してそれっぽく表示したりできるよ
 
