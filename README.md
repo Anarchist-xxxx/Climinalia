@@ -14,7 +14,7 @@ htmlボタンをおすとdata/html/に"{key}.html"っていう名前のhtmlフ�
 Openボタンでブラウザで閲覧できるよ
 
 ## ダウンロード
-
+- [1.0.0](https://github.com/Anarchist-xxxx/Climinalia/releases/download/1.0.0/Criminalia.jar)
 
 ## Credit
 This software includes the work that is distributed in the Apache License 2.0
