@@ -22,4 +22,8 @@ Openボタンでブラウザで閲覧できるよ
 https://github.com/Anarchist-xxxx/Climinalia/releases
 
 ## Credit
-This software includes the work that is distributed in the Apache License 2.0
+This software includes the work that is distributed in the Apache License 2.0  
+
+このソフトウェアは  以下のサイトのライブラリを使用しています  
+アナル＊Wiki  
+http://anarchyunchi.ml/  
