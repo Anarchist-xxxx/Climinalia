@@ -33,7 +33,7 @@ public class DAO {
 
     public ArrayList<Thread5ch> getThreadListByTitle(String keyword) {
         ArrayList<Thread5ch> result = new ArrayList<Thread5ch>();
-        String sql = "select key, title, end from threads where title like ?";
+        String sql = "select key, title, end from threads where title like ? order by key desc";
 
         try {
             PreparedStatement pst = con.prepareStatement(sql);
@@ -138,7 +138,7 @@ public class DAO {
 
     public ArrayList<Thread5ch> getThreadListByPostName(String keyword) {
         ArrayList<Thread5ch> result = new ArrayList<Thread5ch>();
-        String sql1 = "select key from posts where name like ?";
+        String sql1 = "select key from posts where name like ? order by key desc";
 
         try {
             PreparedStatement pst = con.prepareStatement(sql1);
@@ -166,7 +166,7 @@ public class DAO {
 
     public ArrayList<Thread5ch> getThreadListByPostMail(String keyword) {
         ArrayList<Thread5ch> result = new ArrayList<Thread5ch>();
-        String sql1 = "select key from posts where mail like ?";
+        String sql1 = "select key from posts where mail like ? order by key desc";
 
         try {
             PreparedStatement pst = con.prepareStatement(sql1);
@@ -194,7 +194,7 @@ public class DAO {
 
     public ArrayList<Thread5ch> getThreadListByPostTime(String keyword) {
         ArrayList<Thread5ch> result = new ArrayList<Thread5ch>();
-        String sql1 = "select key from posts where Time like ?";
+        String sql1 = "select key from posts where Time like ? order by key desc";
 
         try {
             PreparedStatement pst = con.prepareStatement(sql1);
@@ -222,7 +222,7 @@ public class DAO {
 
     public ArrayList<Thread5ch> getThreadListByPostUid(String keyword) {
         ArrayList<Thread5ch> result = new ArrayList<Thread5ch>();
-        String sql1 = "select key from posts where uid like ?";
+        String sql1 = "select key from posts where uid like ? order by key desc";
 
         try {
             PreparedStatement pst = con.prepareStatement(sql1);
@@ -250,7 +250,7 @@ public class DAO {
 
     public ArrayList<Thread5ch> getThreadListByPostComment(String keyword) {
         ArrayList<Thread5ch> result = new ArrayList<Thread5ch>();
-        String sql1 = "select key from posts where comment like ?";
+        String sql1 = "select key from posts where comment like ? order by key desc";
 
         try {
             PreparedStatement pst = con.prepareStatement(sql1);
@@ -278,7 +278,7 @@ public class DAO {
 
     public ArrayList<Thread5ch> getThreadListByPostNumber(int keyword) {
         ArrayList<Thread5ch> result = new ArrayList<Thread5ch>();
-        String sql1 = "select key from posts where number = ?";
+        String sql1 = "select key from posts where number = ? order by key desc";
 
         try {
             PreparedStatement pst = con.prepareStatement(sql1);
