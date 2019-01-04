@@ -14,7 +14,7 @@ import model.PostSearchItem;
 import model.Thread5ch;
 import model.ThreadSearchItem;
 
-import java.io.File;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -220,6 +220,28 @@ public class FrameController implements Initializable {
 
         if(!dirCss.exists()) {
             dirCss.mkdir();
+        }
+
+        File css = new File("data/html/css/thread.css");
+
+        if(!css.exists()) {
+            try {
+                InputStream is = getClass().getResourceAsStream("/thread.css");
+                BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+
+                PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(css)));
+
+                String line;
+
+                while((line = br.readLine()) != null) {
+                    pw.println(line);
+                }
+
+                pw.close();
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+
         }
 
         File dirDat = new File("data/dat/");

@@ -1,0 +1,49 @@
+* {
+    color: #ffffff;
+    background-color: #333333;
+}
+
+.wrap {
+    margin: 100px 50px 400px;
+}
+
+.thread {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.thread > div {
+    align-self: center;
+}
+
+.end {
+    text-align: right;
+}
+
+.meta * {
+    margin-bottom: 10px;
+    color: #cccccc;
+}
+
+.meta > p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.meta span {
+    margin-right: 10px;
+    align-self: center;
+}
+
+.number {
+    color: #ffffff;
+}
+
+.post {
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #33ffff;
+}
+

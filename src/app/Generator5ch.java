@@ -81,10 +81,6 @@ public class Generator5ch {
 
             PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("data/dat/" + th.getKey() + ".dat")));
 
-            System.out.println(posts.size()
-
-            );
-
             Post5ch first = posts.get(0);
 
             pw.print(first.getName() + "<>");
