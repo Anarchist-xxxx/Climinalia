@@ -42,7 +42,11 @@ public class Generator5ch {
                 pw.println("<span class=\"number\">" + post.getNumber() + "</span>");
                 pw.println("<span class=\"name\">" + post.getName() + "</span>");
                 pw.println("<span class=\"date\">" + post.getTime() + "</span>");
-                pw.println("<span class=\"uid\">" + post.getUid() + "</span>");
+                pw.println("<span class=\"uid\">");
+                if(post.getUid() != null) {
+                    pw.print(post.getUid());
+                }
+                pw.println("</span>");
                 pw.println("</p>");
                 pw.println("</div>");
                 pw.println("<div class=\"message\">");

@@ -216,6 +216,12 @@ public class FrameController implements Initializable {
             dirHtml.mkdir();
         }
 
+        File dirCss = new File("data/html/css/");
+
+        if(!dirCss.exists()) {
+            dirCss.mkdir();
+        }
+
         File dirDat = new File("data/dat/");
 
         if(!dirDat.exists()) {
