@@ -39,10 +39,11 @@ public class FixPanelController implements Initializable {
             System.out.println("Not isCancelButton");
             fixThreadEnd();
 
-            Alert done = new Alert(Alert.AlertType.NONE, "Done!");
+            Alert done = new Alert(Alert.AlertType.NONE, "Done!", ButtonType.APPLY);
             done.setTitle("Done!");
 
-            done.showAndWait();
+            done.showAndWait().orElse(ButtonType.NO);
+            
         } else {
             System.out.println("True isCancelButton");
         }

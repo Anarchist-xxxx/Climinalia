@@ -280,7 +280,7 @@ public class FrameController implements Initializable {
         if(!db.exists()) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "data/database.dbが存在しません", ButtonType.OK);
             alert.getDialogPane().setHeaderText("エラー");
-            alert.showAndWait();
+            alert.showAndWait().orElse(ButtonType.NO);
             System.exit(0);
         }
     }
