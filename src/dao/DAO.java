@@ -57,6 +57,41 @@ public class DAO {
         return result;
     }
 
+    public int getThreadEnd(Thread5ch th) {
+        try {
+            String sql = "select count(*) as end from posts where key = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, th.getKey());
+
+            ResultSet rs = pst.executeQuery();
+
+            return rs.getInt("end");
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return -1;
+    }
+
+    public synchronized boolean insertEnd(Thread5ch th) {
+        try {
+            String sqlInsert = "update threads set end = ? where key = ?";
+            PreparedStatement pstInsert = con.prepareStatement(sqlInsert);
+            pstInsert.setInt(1, th.getEnd());
+            pstInsert.setString(2, th.getKey());
+
+            if(pstInsert.executeUpdate() > 0) {
+                return true;
+            }
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
     public ArrayList<Thread5ch> getThreadList() {
         ArrayList<Thread5ch> result = new ArrayList<Thread5ch>();
         String sql = "select key, title, end from threads order by key desc";

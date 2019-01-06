@@ -17,7 +17,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <BorderPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.FrameController">
    <center>
       <SplitPane dividerPositions="0.5344827586206896" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="10.0" minWidth="10.0" prefHeight="701.0" prefWidth="1220.0">
@@ -112,8 +111,9 @@
    <top>
       <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="1292.0" BorderPane.alignment="CENTER">
         <items>
-          <Button mnemonicParsing="false" onAction="#openSetting" text="Setting(Unimplemented)" />
-            <Button mnemonicParsing="false" onAction="#anarchyAction" text="【*^▲^*】" textAlignment="CENTER" textFill="RED" />
+            <Button mnemonicParsing="false" onAction="#anarchyAction" text="【*^▲^*】" textAlignment="RIGHT" textFill="RED" />
+          <Button mnemonicParsing="false" onAction="#openSetting" text="Setting" />
+            <Button mnemonicParsing="false" onAction="#openFixPanelAction" text="Fix Panel" />
         </items>
       </ToolBar>
    </top>

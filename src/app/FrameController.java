@@ -1,13 +1,20 @@
 package app;
 
 import dao.DAO;
+import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import main.com.j5.connect.J5ch;
 import main.com.j5.connect.ResultSet;
 import model.PostSearchItem;
@@ -129,6 +136,24 @@ public class FrameController implements Initializable {
         Mascot k = new Mascot();
 
         k.start();
+    }
+
+    @FXML
+    public void openFixPanelAction(ActionEvent event) {
+        try {
+            openFixPanel();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void openFixPanel() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fix_panel.fxml"));
+        BorderPane root = (BorderPane) loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 
     public void initialize(URL url, ResourceBundle resourcebundle) {
@@ -255,8 +280,8 @@ public class FrameController implements Initializable {
         if(!db.exists()) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "data/database.dbが存在しません", ButtonType.OK);
             alert.getDialogPane().setHeaderText("エラー");
-            alert.showAndWait().orElse( ButtonType.CANCEL );
-            System.exit(1);
+            alert.showAndWait();
+            System.exit(0);
         }
     }
 
