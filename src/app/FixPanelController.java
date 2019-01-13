@@ -61,4 +61,21 @@ public class FixPanelController implements Initializable {
             プログレスバーが未実装だよ
          */
     }
+
+    @FXML
+    public void buttonFixThreadStartTimeAndEndTimeAction(ActionEvent event) {
+        System.out.println("ここがよばれてる？");
+        fixThreadStartTimeAndEndTime();
+    }
+
+    private void fixThreadStartTimeAndEndTime() {
+        ArrayList<Thread5ch> threadList = dao.getThreadList();
+
+        for(Thread5ch tmp: threadList) {
+            String key = tmp.getKey();
+            dao.updateThreadStartTimeAndEndTime(key, dao.getThreadStartTime(key), dao.getThreadEndTime(key));
+
+            System.out.println(tmp.getTitle());
+        }
+    }
 }

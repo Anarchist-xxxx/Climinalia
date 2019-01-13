@@ -25,9 +25,11 @@
                <center>
                   <TableView fx:id="listTable" prefHeight="624.0" prefWidth="276.0">
                     <columns>
-                      <TableColumn fx:id="columnTitle" prefWidth="488.0" text="Title" />
-                        <TableColumn fx:id="columnEnd" prefWidth="49.0" style="-fx-alignment: center-right;" text="posts" />
-                      <TableColumn fx:id="columnKey" prefWidth="93.0" style="-fx-alignment: center;" text="Key" />
+                      <TableColumn fx:id="columnTitle" prefWidth="440.0" text="Title" />
+                        <TableColumn fx:id="columnEnd" prefWidth="42.0" style="-fx-alignment: center-right;" text="posts" />
+                        <TableColumn fx:id="columnStartTime" prefWidth="68.0" text="StartTime" />
+                        <TableColumn fx:id="columnEndTime" prefWidth="60.0" text="EndTime" />
+                      <TableColumn fx:id="columnKey" prefWidth="79.0" style="-fx-alignment: center;" text="Key" />
                     </columns>
                   </TableView>
                </center>

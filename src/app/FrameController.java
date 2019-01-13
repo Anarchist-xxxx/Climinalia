@@ -40,6 +40,12 @@ public class FrameController implements Initializable {
     private TableColumn<Thread5ch, String> columnTitle;
 
     @FXML
+    private TableColumn<Thread5ch, String> columnStartTime;
+
+    @FXML
+    private TableColumn<Thread5ch, String> columnEndTime;
+
+    @FXML
     private Button buttonUpdate;
 
     @FXML
@@ -188,6 +194,8 @@ public class FrameController implements Initializable {
         columnKey.setCellValueFactory(new PropertyValueFactory<Thread5ch, String>("key"));
         columnEnd.setCellValueFactory(new PropertyValueFactory<Thread5ch, Integer>("end"));
         columnTitle.setCellValueFactory(new PropertyValueFactory<Thread5ch, String>("title"));
+        columnStartTime.setCellValueFactory(new PropertyValueFactory<Thread5ch, String>("startTime"));
+        columnEndTime.setCellValueFactory(new PropertyValueFactory<Thread5ch, String>("endTime"));
 
         //ChoiceBox
         choiceThreadSearch.getItems().addAll(
@@ -213,6 +221,7 @@ public class FrameController implements Initializable {
 
         for(Thread5ch foo: list) {
             listTable.getItems().add(foo);
+            System.out.println("StartTime: " + foo.getStartTime());
         }
     }
 
@@ -283,6 +292,10 @@ public class FrameController implements Initializable {
             alert.showAndWait().orElse(ButtonType.NO);
             System.exit(0);
         }
+
+        //行のチェック
+        DAO dao = new DAO();
+        dao.fixColumn();
     }
 
 }

@@ -94,7 +94,7 @@ public class DAO {
 
     public ArrayList<Thread5ch> getThreadList() {
         ArrayList<Thread5ch> result = new ArrayList<Thread5ch>();
-        String sql = "select key, title, end from threads order by key desc";
+        String sql = "select key, title, end, start_time, end_time from threads order by start_time desc";
 
         try {
             PreparedStatement pst = con.prepareStatement(sql);
@@ -105,6 +105,8 @@ public class DAO {
                 foo.setKey(rs.getString("key"));
                 foo.setTitle(rs.getString("title"));
                 foo.setEnd(rs.getInt("end"));
+                foo.setStartTime(rs.getString("start_time"));
+                foo.setEndTime(rs.getString("end_time"));
 
                 result.add(foo);
             }
@@ -148,7 +150,7 @@ public class DAO {
 
     public ArrayList<Thread5ch> getThreadListByKey(String keyword) {
         ArrayList<Thread5ch> result = new ArrayList<Thread5ch>();
-        String sql = "select key, title, end from threads where key like ? order by key desc";
+        String sql = "select key, title, end, start_time, end_time from threads where key like ? order by start_time desc";
 
         try {
             PreparedStatement pst = con.prepareStatement(sql);
@@ -160,6 +162,8 @@ public class DAO {
                 foo.setKey(rs.getString("key"));
                 foo.setTitle(rs.getString("title"));
                 foo.setEnd(rs.getInt("end"));
+                foo.setStartTime(rs.getString("start_time"));
+                foo.setEndTime(rs.getString("end_time"));
 
                 result.add(foo);
             }
@@ -337,6 +341,91 @@ public class DAO {
         }
 
         return result;
+    }
+
+    public synchronized String getThreadStartTime(String key) {
+
+        try {
+            PreparedStatement pst = con.prepareStatement("select min(time) as start_time from posts where key = ?");
+            pst.setString(1, key);
+
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()) {
+                return rs.getString("start_time");
+            }
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public synchronized String getThreadEndTime(String key) {
+
+        try {
+            PreparedStatement pst = con.prepareStatement("select max(time) as end_time from posts where key = ?");
+            pst.setString(1, key);
+
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()) {
+                return rs.getString("end_time");
+            }
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public synchronized boolean updateThreadStartTimeAndEndTime(String key, String startTime, String endTime) {
+        if(startTime != null && endTime != null) {
+            try {
+                PreparedStatement pst = con.prepareStatement("update threads set start_time = ?, end_time = ? where key = ?");
+                pst.setString(1, startTime);
+                pst.setString(2, endTime);
+                pst.setString(3, key);
+
+                return 0 < pst.executeUpdate();
+
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return false;
+    }
+
+    public synchronized void fixColumn() {
+        try {
+
+            Statement st = con.createStatement();
+
+            //threadsテーブルの行一覧を取得
+            ResultSet rs = st.executeQuery("PRAGMA TABLE_INFO('threads');");
+
+            ArrayList<String> names = new ArrayList<String>();
+
+            while(rs.next()) {
+                names.add(rs.getString("name"));
+            }
+
+            //threads.start_timeがなかったら生成
+            if(names.indexOf("start_time") == -1) {
+                st.execute("alter table threads add column start_time text");
+            }
+
+            //threads.end_timeがなかったら生成
+            if(names.indexOf("end_time") == -1) {
+                st.execute("alter table threads add column end_time text");
+            }
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
