@@ -30,22 +30,9 @@ public class FixPanelController implements Initializable {
 
     @FXML
     public void buttonFixThreadEndAction(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "PandoLiA、Clawliaは終了しましたか？", ButtonType.YES, ButtonType.NO);
-        alert.setTitle("注意！");
-
-        ButtonType ans = alert.showAndWait().orElse(ButtonType.NO);
-
-        if(!(ans.getButtonData().isCancelButton())) {
-            System.out.println("Not isCancelButton");
+        if(!(alertNowClawling())) {
             fixThreadEnd();
-
-            Alert done = new Alert(Alert.AlertType.NONE, "Done!", ButtonType.APPLY);
-            done.setTitle("Done!");
-
-            done.showAndWait().orElse(ButtonType.NO);
-            
-        } else {
-            System.out.println("True isCancelButton");
+            doneAlert();
         }
     }
 
@@ -64,8 +51,10 @@ public class FixPanelController implements Initializable {
 
     @FXML
     public void buttonFixThreadStartTimeAndEndTimeAction(ActionEvent event) {
-        System.out.println("ここがよばれてる？");
-        fixThreadStartTimeAndEndTime();
+        if(!(alertNowClawling())) {
+            fixThreadStartTimeAndEndTime();
+            doneAlert();
+        }
     }
 
     private void fixThreadStartTimeAndEndTime() {
@@ -77,5 +66,21 @@ public class FixPanelController implements Initializable {
 
             System.out.println(tmp.getTitle());
         }
+    }
+
+    private boolean alertNowClawling() {
+        Alert alert = new Alert(Alert.AlertType.WARNING, "PandoLiA、Clawliaは終了しましたか？", ButtonType.YES, ButtonType.NO);
+        alert.setTitle("注意！");
+
+        ButtonType ans = alert.showAndWait().orElse(ButtonType.NO);
+
+        return ans.getButtonData().isCancelButton();
+    }
+
+    private void doneAlert() {
+        Alert done = new Alert(Alert.AlertType.NONE, "Done!", ButtonType.APPLY);
+        done.setTitle("Done!");
+
+        done.showAndWait().orElse(ButtonType.NO);
     }
 }
